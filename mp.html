@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mp</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>mp</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/namit/hw3/mp.py">/home/namit/hw3/mp.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="utils.html">utils</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="mp.html#message_passing">message_passing</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="message_passing">class <strong>message_passing</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="message_passing-MAP"><strong>MAP</strong></a>(self)</dt><dd><tt>Find&nbsp;most&nbsp;probable&nbsp;global&nbsp;assignment&nbsp;to&nbsp;the&nbsp;variables</tt></dd></dl>
+
+<dl><dt><a name="message_passing-MP"><strong>MP</strong></a>(self, sum_marginalize)</dt><dd><tt>The&nbsp;main&nbsp;message&nbsp;passing&nbsp;algorithm&nbsp;<br>
+Runs&nbsp;sum-product&nbsp;algorithm&nbsp;if&nbsp;sum_marginalize&nbsp;is&nbsp;True&nbsp;else&nbsp;runs&nbsp;max-product&nbsp;algorithm</tt></dd></dl>
+
+<dl><dt><a name="message_passing-__init__"><strong>__init__</strong></a>(self, graph_file, potential_file)</dt><dd><tt>Does&nbsp;the&nbsp;following:&nbsp;<br>
+1.&nbsp;Read&nbsp;graph&nbsp;structure.&nbsp;<br>
+2.&nbsp;Perform&nbsp;MCS&nbsp;to&nbsp;triangulate&nbsp;the&nbsp;graph<br>
+3.&nbsp;Enumerate&nbsp;max&nbsp;cliques&nbsp;in&nbsp;the&nbsp;triangulated&nbsp;graph<br>
+4.&nbsp;Build&nbsp;junction&nbsp;tree<br>
+5.&nbsp;Read&nbsp;factors&nbsp;of&nbsp;the&nbsp;distribution&nbsp;from&nbsp;file&nbsp;and&nbsp;assign&nbsp;them&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;nodes&nbsp;of&nbsp;JT<br>
+6.&nbsp;Calculate&nbsp;normalizing&nbsp;factor&nbsp;Z&nbsp;of&nbsp;the&nbsp;distribution</tt></dd></dl>
+
+<dl><dt><a name="message_passing-calc_MAP_assignments"><strong>calc_MAP_assignments</strong></a>(self)</dt><dd><tt>Evaluates&nbsp;the&nbsp;most&nbsp;probable&nbsp;global&nbsp;assignment&nbsp;to&nbsp;variables</tt></dd></dl>
+
+<dl><dt><a name="message_passing-calc_message"><strong>calc_message</strong></a>(self, sending_clique, recv_clique, sum_marginalize)</dt><dd><tt>Calculate&nbsp;the&nbsp;message&nbsp;to&nbsp;be&nbsp;sent&nbsp;from&nbsp;sending&nbsp;clique&nbsp;to&nbsp;receiving&nbsp;clique<br>
+Message&nbsp;is&nbsp;the&nbsp;product&nbsp;of&nbsp;all&nbsp;factors&nbsp;in&nbsp;the&nbsp;sending&nbsp;clique&nbsp;marginalized&nbsp;over&nbsp;the&nbsp;<br>
+variables&nbsp;not&nbsp;in&nbsp;the&nbsp;separating&nbsp;set&nbsp;between&nbsp;sending&nbsp;and&nbsp;receiving&nbsp;clique</tt></dd></dl>
+
+<dl><dt><a name="message_passing-enumerate_max_cliques"><strong>enumerate_max_cliques</strong></a>(self)</dt><dd><tt>Find&nbsp;all&nbsp;the&nbsp;maximal&nbsp;cliques&nbsp;in&nbsp;the&nbsp;graph&nbsp;after&nbsp;triangulation</tt></dd></dl>
+
+<dl><dt><a name="message_passing-jt_pass"><strong>jt_pass</strong></a>(self, pass_order, sum_marginalize)</dt><dd><tt>One&nbsp;pass&nbsp;of&nbsp;the&nbsp;MP&nbsp;algorithm&nbsp;in&nbsp;direction&nbsp;as&nbsp;governed&nbsp;by&nbsp;pass_order<br>
+Two&nbsp;passes&nbsp;-&nbsp;forwad&nbsp;and&nbsp;backward&nbsp;-&nbsp;are&nbsp;enough&nbsp;to&nbsp;calibrate&nbsp;the&nbsp;JT</tt></dd></dl>
+
+<dl><dt><a name="message_passing-junction_tree"><strong>junction_tree</strong></a>(self)</dt><dd><tt>Junction&nbsp;tree&nbsp;of&nbsp;the&nbsp;triangulated&nbsp;graph</tt></dd></dl>
+
+<dl><dt><a name="message_passing-max_card_search"><strong>max_card_search</strong></a>(self)</dt><dd><tt>Maximum&nbsp;cardinality&nbsp;search&nbsp;algorithm</tt></dd></dl>
+
+<dl><dt><a name="message_passing-max_nbr"><strong>max_nbr</strong></a>(self, processed_nodes, rem_nodes)</dt><dd><tt>From&nbsp;rem_nodes,&nbsp;find&nbsp;a&nbsp;node&nbsp;that&nbsp;has&nbsp;maximum&nbsp;number&nbsp;of&nbsp;neighbors&nbsp;in&nbsp;processed_nodes</tt></dd></dl>
+
+<dl><dt><a name="message_passing-read_CPT"><strong>read_CPT</strong></a>(self, filename)</dt><dd><tt>Read&nbsp;potentials&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;graph</tt></dd></dl>
+
+<dl><dt><a name="message_passing-read_graph"><strong>read_graph</strong></a>(self, filename)</dt><dd><tt>Read&nbsp;graph&nbsp;structure&nbsp;from&nbsp;file&nbsp;and&nbsp;populate&nbsp;the&nbsp;adjacency&nbsp;matric&nbsp;and&nbsp;list&nbsp;structures&nbsp;of&nbsp;graph</tt></dd></dl>
+
+<dl><dt><a name="message_passing-send_message"><strong>send_message</strong></a>(self, sepset, potential, sending_clique, recv_clique)</dt><dd><tt>Send&nbsp;message&nbsp;i.e&nbsp;update&nbsp;the&nbsp;clique&nbsp;factors</tt></dd></dl>
+
+<dl><dt><a name="message_passing-sum_marginal_query"><strong>sum_marginal_query</strong></a>(self)</dt><dd><tt>Given&nbsp;nodes&nbsp;that&nbsp;are&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;contained&nbsp;in&nbsp;one&nbsp;of&nbsp;the&nbsp;cliques,&nbsp;<br>
+finds&nbsp;the&nbsp;marginal&nbsp;probability&nbsp;of&nbsp;this&nbsp;set&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<dl><dt><a name="message_passing-triangulate"><strong>triangulate</strong></a>(self)</dt><dd><tt>Traingulate&nbsp;graph&nbsp;using&nbsp;the&nbsp;elimination&nbsp;order&nbsp;found&nbsp;by&nbsp;MCS</tt></dd></dl>
+
+<dl><dt><a name="message_passing-update_graph_structures"><strong>update_graph_structures</strong></a>(self, v0, v1)</dt><dd><tt>Update&nbsp;the&nbsp;adjacency&nbsp;list&nbsp;and&nbsp;adjacency&nbsp;matrix&nbsp;structures&nbsp;with&nbsp;&nbsp;edge&nbsp;v0-v1</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>MAP_assignments</strong> = {0: array([ 0.]), 1: array([ 0.]), 2: array([[[[[ 0.,  0.,  0.],
+          [ 0.,  0., ...  [ 0.,  0.,  0.],
+          [ 0.,  0.,  0.]]]]]), 3: array([[[[[[ 0.,  0.,  0.],
+           [ 0.,  0....[ 0.,  0.,  0.],
+           [ 0.,  0.,  0.]]]]]]), 4: array([[[[[ 0.,  0.,  0.],
+          [ 0.,  0., ...  [ 0.,  0.,  0.],
+          [ 0.,  0.,  0.]]]]]), 5: array([ 0.]), 6: array([[[[[[ 0.,  0.,  0.],
+           [ 0.,  0....[ 0.,  0.,  0.],
+           [ 0.,  0.,  0.]]]]]]), 7: array([ 0.]), 8: array([ 0.]), 9: array([ 0.])}</dl>
+
+<dl><dt><strong>MAP_dependencies</strong> = {0: (9, 5, 7), 1: (9, 5, 7), 2: (0, 1, 9, 5, 7), 3: (0, 1, 2, 4, 5, 9), 4: (0, 1, 9, 5, 7), 5: (), 6: (0, 1, 2, 4, 7, 9), 7: (), 8: (9, 5, 7), 9: ()}</dl>
+
+<dl><dt><strong>MAP_evaluated</strong> = False</dl>
+
+<dl><dt><strong>adj_list</strong> = []</dl>
+
+<dl><dt><strong>adj_mat</strong> = []</dl>
+
+<dl><dt><strong>clique_factors</strong> = []</dl>
+
+<dl><dt><strong>dummy_message</strong> = False</dl>
+
+<dl><dt><strong>graph_file</strong> = ''</dl>
+
+<dl><dt><strong>jt_adj_list</strong> = []</dl>
+
+<dl><dt><strong>max_cliques</strong> = [[8, 0, 9, 7, 5, 1], [6, 0, 1, 2, 4, 7, 9], [7, 0, 1, 2, 4, 5, 9], [5, 0, 1, 2, 3, 4, 9]]</dl>
+
+<dl><dt><strong>node_arity</strong> = []</dl>
+
+<dl><dt><strong>normalizer</strong> = 0.0</dl>
+
+<dl><dt><strong>num_edges</strong> = 0</dl>
+
+<dl><dt><strong>num_nodes</strong> = 0</dl>
+
+<dl><dt><strong>potential_file</strong> = ''</dl>
+
+<dl><dt><strong>rev_elim_order</strong> = []</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>obj</strong> = &lt;mp.message_passing instance&gt;</td></tr></table>
+</body></html>

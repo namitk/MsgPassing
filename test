@@ -1,0 +1,32 @@
+137c137
+<         n.append(0)            
+---
+>         n.append(0)    
+196c196
+<         variables = tuple(set(variables))
+---
+>         variables = tuple(set(variables))                
+235c235
+<             sepset_assignment = [assignment[variables.index(x)] for x in sepset]
+---
+>             sepset_assignment = [assignment[variables.index(x)] for x in sepset]        
+280c280
+<         self.jt_pass(back_dfs, sum_marginalize)        
+---
+>         self.jt_pass(back_dfs, sum_marginalize)
+327c327
+<             if set(ip) <= set(self.max_cliques[i]):            
+---
+>             if set(ip) <= set(self.max_cliques[i]):                            
+360d359
+<                 # print probability table by dividing potential by the sum of elements in the table
+363a363
+>                 
+368c368
+<                         s=s+str(b)+'\t'      
+---
+>                         s=s+str(b)+'\t'
+381c381
+< object = message_passing(sys.argv[1], sys.argv[2])
+---
+> object = message_passing(sys.argv[1], sys.argv[1])
